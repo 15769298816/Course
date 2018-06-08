@@ -1,0 +1,29 @@
+server:
+  port: 8082
+  context-path: /course
+
+jdbc:
+  driver: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/course?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=true&serverTimezone=UTC
+  username: root
+  password: 123456
+  
+
+mybatis:
+  config_file: mybatis-config.xml
+  mapper_path: /mapper/*.xml
+  entity_package: com.course.entity
+  
+  
+#日志相关配置
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: Debug
+      hibernate: ERROR
+  file: F:\\CourseProject\\log\\course.log
+    
+    
+    

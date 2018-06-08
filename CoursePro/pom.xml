@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.coursePro</groupId>
+  <artifactId>CoursePro</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>coursePro</name>
+  
+   <!-- Maven的用户可以通过继承spring-boot-starter-parent项目来获得一些合理的默认配置,
+	  	如果dependencies中的一些引用不想使用默认的版本，可以直接加上version信息，把默认的覆盖掉。 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.9.RELEASE</version>
+	</parent>
+	 <properties>
+	      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      	 <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	      <java.version>1.8</java.version>
+	</properties>
+	
+	<dependencies>
+		 <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.1</version>
+        </dependency> 
+        <!-- 构建Web，包含RESTful风格框架SpringMVC和默认的嵌入式容器Tomcat -->
+	    <dependency>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-starter-web</artifactId>
+	    </dependency>
+	    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+	        <dependency>
+	        <groupId>org.apache.shiro</groupId>
+	        <artifactId>shiro-core</artifactId>
+	        <version>1.2.2</version>
+  	 	</dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--数据库连接池  -->
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
+         <!-- shiro权限控制框架 -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+	</dependencies>
+	<!-- Spring Boot的Maven插件,能够将Spring Boot应用打包为可执行的jar或war文件，然后以通常的方式运行Spring Boot应用。 -->
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                <!-- 没有该配置，devtools 不生效 -->
+                <fork>true</fork>
+           		 </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

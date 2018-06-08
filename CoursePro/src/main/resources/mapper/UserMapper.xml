@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.course.dao.UserDao">
+	
+	<!-- 查询所有用户的信息和角色 -->
+	<select id="listAllUser" resultMap="UserMap">
+		select 
+			u.user_id,u.user_name,u.password,r.role_id,r.role_name 
+		from 
+			tb_user u,tb_role r,tb_user_role ur 
+		where 
+			u.user_id = ur.user_id 
+		and
+			r.role_id = ur.role_id;
+	</select>
+</mapper>
